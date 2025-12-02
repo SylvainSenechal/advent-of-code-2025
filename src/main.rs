@@ -1,16 +1,19 @@
 mod day1;
+mod day2;
 
 use std::env;
 
 #[derive(Debug)]
 enum Day {
-    Day1
+    Day1,
+    Day2,
 }
 
 impl From<&str> for Day {
     fn from(s: &str) -> Self {
         match s {
             "day1" => Day::Day1,
+            "day2" => Day::Day2,
             _ => {
                 eprintln!("Unknown day: {}", s);
                 std::process::exit(1);
@@ -32,5 +35,6 @@ fn main() {
     
     match day {
         Day::Day1 => day1::solve(),
+        Day::Day2 => day2::solve(),
     }
 }
