@@ -1,22 +1,3 @@
-use std::fs;
-
-pub fn solve() {
-    println!("=== Day 1 ===");
-    
-    let input = read_input();
-    
-    let part1_result = part1(&input);
-    println!("Part 1: {}", part1_result);
-    
-    let part2_result = part2(&input);
-    println!("Part 2: {}", part2_result);
-}
-
-fn read_input() -> String {
-    fs::read_to_string("inputs/d1p1.txt")
-        .expect("Failed to read input file")
-}
-
 enum Direction {
     R,
     L,
@@ -40,7 +21,7 @@ impl From<&str> for Command {
     }
 }
 
-fn part1(input: &str) -> i32 {
+pub fn part1(input: &str) -> i32 {
     let mut dial = 50;
     let mut password = 0;
 
@@ -57,7 +38,7 @@ fn part1(input: &str) -> i32 {
     return password;
 }
 
-fn part2(input: &str) -> i32 {
+pub fn part2(input: &str) -> i32 {
     let mut dial = 50;
     let mut password = 0;
 

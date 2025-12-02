@@ -1,23 +1,4 @@
-use std::fs;
-
-pub fn solve() {
-    println!("=== Day 2 ===");
-    
-    let input = read_input();
-    
-    let part1_result = part1(&input);
-    println!("Part 1: {}", part1_result);
-    
-    let part2_result = part2(&input);
-    println!("Part 2: {}", part2_result);
-}
-
-fn read_input() -> String {
-    fs::read_to_string("inputs/d2p1.txt")
-        .expect("Failed to read input file")
-}
-
-fn part1(input: &str) -> u64 {
+pub fn part1(input: &str) -> u64 {
     let mut addup = 0;
     for elem in input.split(',') {
         let (split_left, split_right) = elem.split_once('-').expect("should have 2 bounds");
@@ -37,7 +18,7 @@ fn part1(input: &str) -> u64 {
     return addup;
 }
 
-fn part2(input: &str) -> u64 {
+pub fn part2(input: &str) -> u64 {
     let mut addup = 0;
     for elem in input.split(',') {
         let (lower, upper) = elem.split_once('-').expect("should have 2 bounds");
